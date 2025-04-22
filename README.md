@@ -1,4 +1,4 @@
-# Angular Supabase Auth App
+# LycheeLock Stage 1 -- Auth App
 
 This is an Angular application with Supabase authentication. It includes email/password authentication, protected routes, and user session management.
 
@@ -50,3 +50,8 @@ This is an Angular application with Supabase authentication. It includes email/p
 - Angular
 - Supabase (Authentication)
 - RxJS (Observable state management)
+
+## Supabase SQL Setup
+- Default settings
+
+# LycheeLock Stage 2 -- TOTP Enabled
