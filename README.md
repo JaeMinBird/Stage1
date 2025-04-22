@@ -1,59 +1,52 @@
-# Stage1
+# Angular Supabase Auth App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+This is an Angular application with Supabase authentication. It includes email/password authentication, protected routes, and user session management.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Email/password authentication using Supabase
+- Login and signup forms
+- Protected dashboard route
+- Authentication state management
+- User session persistence
 
-```bash
-ng serve
-```
+## Setup
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+1. Clone this repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Update your Supabase credentials in `src/environments/environment.ts`:
+   ```typescript
+   export const environment = {
+     production: false,
+     supabaseUrl: 'YOUR_SUPABASE_URL',
+     supabaseKey: 'YOUR_SUPABASE_ANON_KEY'
+   };
+   ```
+4. Run the development server:
+   ```
+   npm start
+   ```
 
-## Code scaffolding
+## Application Structure
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Auth Component (`/`)**: Login and signup forms
+- **Dashboard Component (`/dashboard`)**: Protected page only accessible after authentication
+- **AuthService**: Manages Supabase authentication (sign in, sign up, sign out)
+- **AuthGuard**: Protects routes from unauthorized access
 
-```bash
-ng generate component component-name
-```
+## How It Works
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Users can sign up or log in from the root route (`/`)
+2. Upon successful authentication, they are redirected to the dashboard (`/dashboard`)
+3. The dashboard is protected and only accessible to authenticated users
+4. If a user tries to access the dashboard without authentication, they are redirected to the login page
+5. The auth state is persisted across the application using the Supabase client
 
-```bash
-ng generate --help
-```
+## Technologies Used
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular
+- Supabase (Authentication)
+- RxJS (Observable state management)
